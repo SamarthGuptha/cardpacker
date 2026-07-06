@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <title>Cardpacker - A Travel Card game.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Bangers&family=Press+Start+2P&family=Archivo+Black&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href = "./style.css"/>
+</head>
+<body>
+<div id="app">
+    <section id="screen-menu" class="screen">
+        <div class="menu-wrap">
+            <h1 class="logo">CARD<span>PACKER</span></h1>
+            <p class="tagline">Pack a 5 day trip. Don't loose your mind.</p>
+            <div class="miles-row">
+                <div class="miles-pill">✈ <span id="menu-miles">0</span> SKY MILES</div>
+                <button id="btn-shop" class="shop-btn">DUTY FREE SHOP →</button>
+            </div>
+            <div class="region-select">
+                <button class="region-btn" data-region="0">
+                    <span class="region-tag easy">EASY</span>
+                    <strong>Southeast Asia</strong>
+                    <em>Loose vibes, High stress tolerance</em>
+                </button>
+                <button class="region-btn locked" data-region="1" disabled>
+                    <span class="region-tag med">MEDIUM</span>
+                    <strong>Western Europe</strong>
+                    <em>Strict country matching</em>
+                    <span class="lock">🔒 Win Region 1</span>
+                </button>
+                <button class="region-btn locked" data-region="2" disabled>
+                    <span class="region-tag hard">HARD</span>
+                    <strong>South American Expedition</strong>
+                    <em>Aggressive Pacing, Low Stress</em>
+                    <span class="lock">🔒 Win Region 2</span>
+                </button>
+            </div>
+            <p class="how">Draw a card → Pick a day → Build Combos → SURVIVE!</p>
+        </div>
+    </section>
+    <section id="screen-shop" class="screen hidden">
+        <div class="menu-wrap shop-wrap">
+            <div class="shop-header">
+                <button id="btn-shop-back" class="mini-btn" title="Back">←</button>
+                <h1 class="logo shop-logo">DUTY<span>FREE</span></h1>
+            </div>
+            <div class="miles-row">
+                <div class="miles-pill big">✈<span id="shop-miles">0</span>SKY MILES</div>
+            </div>
+            <p class="tagline">Spend your miles on permanent cosmetic themes.</p>
+            <div class="theme-grid" id="theme-grid"></div>
+        </div>
+    </section>
+    <section id="screen-game" class="screen hidden">
+        <header class="topbar">
+            <button id="btn-menu" class="mini-btn" title="Back to menu">←</button>
+            <div class="score-pill">
+                <span class="score-label">SCORE</span>
+                <span id="score-value">0</span>
+            </div>
+            <div class="region-pill" id="region-pill">Region 1</div>
+        </header>
+        <div class="stress-wrap">
+            <div class="stress-label">
+                <span>STRESS</span>
+                <span id="stress-value">0%</span>
+            </div>
+            <div class="stress-bar" id="stress-bar">
+                <div class="stress-fill" id="stress-fill"></div>
+                <div class="stress-threshold" id="stress-threshold"></div>
+            </div>
+        </div>
+        <div class="deck-info">
+            <span id="deck-count">20 Cards left</span>
+            <span id="cards-placed">0 / 5 days packed</span>
+        </div>
+        <main class="card-stage">
+            <div id="active-card" class="card">
+                <div class="card-inner">
+                    <div class="card-top">
+                        <span class="card-cat" id="card-cat">FOOD</span>
+                        <span class="card-loc" id="card-loc">Tokyo, JP</span>
+                    </div>
+                    <div class="card-title" id="card-title">Ramen Crawl</div>
+                    <div class="card-art" id="card-art">🍜</div>
+                    <div class="card-stats">
+                    <div class="stat pts"><small>PTS</small><b id="card-pts">+8</b></div>
+                    <div class="stat str"><small>STRESS</small><b id="card-str">+5%</b></div>
+                    </div>
+                    <div class="card-note" id="card-note">Food combo lover.</div>
+                </div>
+            </div>
+            <div id="choice-panel" class="choice-panel hidden">
+                <p id="choice-text"></p>
+                <div class="choice-btns">
+                    <button id="choice-accept" class="chunk-btn accept">Accept</button>
+                    <button id="choice-decline" class="chunk-btn decline">Decline</button>
+                </div>
+            </div>
+        </main>
+        <footer class="days-tray">
+            <div class="days-row" id="days-row"></div>
+            <button id="btn-discard" class="discard-btn">Discard (+8% stress)</button>
+        </footer>
+    </section>
+    <section id="screen-receipt" class="screen hidden">
+        <div class="receipt" id="receipt">
+            <h2 id="receipt-title">TRIP RECEIPT</h2>
+            <div class="receipt-region" id="receipt-region">Southeast Asia</div>
+            <ul id="receipt-lines"></ul>
+            <div class="receipt-sep">- - - - - - - - - - - - -</div>
+            <div class="receipt-total">
+                <span>TOTAL</span><span id="receipt-total">0</span>
+            </div>
+            <div id="receipt-verdict" class="receipt-verdict">GLORIOUS TRIP!</div>
+            <div class="miles-earned">✈ Earned <span id="receipt-miles">0</span> Sky Miles</div>
+            <div class="receipt-actions">
+                <button id="btn-next" class="chunk-btn accept">Next Region →</button>
+                <button id="btn-retry" class="chunk-btn decline">Play Again</button>
+            </div>
+            <button id="btn-receipt-shop" class="chunk-btn shop-cta">✈ DUTY FREE SHOP</button>
+        </div>
+    </section>
+    <div id="toast" class="toast hidden"></div>
+</div>
+<script type="module" src="./app.js"></script>
+</body>
+</html>
