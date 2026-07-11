@@ -1,0 +1,41 @@
+:root {
+    --ink: #111111;
+    --paper: #fff8e7;
+    --pop-yellow: #ffd447;
+    --pop-pink: #ff5ea8;
+    --pop-blue: #4cc9f0;
+    --pop-orange: #ff9a3c;
+    --pop-green: #7ee081;
+    --pop-red: #ff4d3d;
+    --pop-purple: #b892ff;
+    --shadow: 5px 5px 0 var(--ink);
+    --shadow-lg: 8px 8px 0 var(--ink);
+    --border:3px solid var(--ink);
+    --border-thick:4px solid var(--ink);
+    --radius: 14px;
+}
+
+*{
+    box-sizing:border-box;
+    margin:0;padding:0;
+}
+
+html,body{height:100%}
+
+body{
+    font-family: "Fredoka", system-ui,-apple-system,sans-serif;
+    background:radial-gradient(circle at 10% 10%, var(--pop-pink) 0 2px, transparent 3px),
+                radial-gradient(circle at 80% 30%, var(--pop-blue) 0 2px, transparent 3px),
+                radial-gradient(circle at 30% 80%, var(--pop-yellow) 0 2px, transparent 3px),
+                var(--paper);
+    background-size: 60px 60px, 90px 90px,120px 120px,auto;
+    color: var(--ink);
+    min-height: 100%;
+    overflow-x:hidden;
+    -webkit-tap-highlight-color:transparent;
+
+}
+
+#app{
+
+}
