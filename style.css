@@ -397,3 +397,176 @@ color:var(--paper);}
     gap:10px;
     margin:4px 0 18px;
 }
+.miles-pill{
+    flex:1;
+    background: var(--pop-yellow);
+    border:var(--border);
+    border-radius:10px;
+    padding: 8px 12px;
+    font-weight: 700;
+    font-size:14px;
+    letter-spacing: 1px;
+    box-shadow: 3px 3px 0 var(--ink);
+}
+
+.miles-pill.big{font-size:18px; padding:12px 14px;}
+.shop-btn{
+    background: var(--pop-pink);
+    border: var(--border);
+    border-radius: 10px;
+    padding:8px 14px;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 13px;
+    color:var(--ink);
+    cursor:pointer;
+    box-shadow: 3px 3px 0 var(--ink);
+    transition: transform .08s, box-shadow .08s;
+}
+.shop-btn:hover{
+    transform:translate(-2px, -2px);
+    box-shadow: 5px 5px 0 var(--ink);
+}
+.shop-btn:active{
+    transform: translate(3px,3px);
+    box-shadow: 0 0 0 var(--ink);
+}
+.shop-wrap{
+    margin-top: 12px; padding-bottom: 24px;
+}
+.shop-header {
+    display:flex;
+    align-items: center; gap:10px; margin-bottom: 8px;
+}
+.shop-logo{font-size: clamp(32px, 8vw, 48px);}
+.theme-grid{display: grid; gap: 14px; margin-top: 10px;}
+.theme-card{
+    background:var(--paper);
+    border:var(--border-thick);
+    border-radius: var(--radius);
+    padding: 12px;
+    box-shadow: var(--shadow);
+    display: grid;
+    grid-template-columns: 76px 1fr;
+    grid-template-rows:auto auto;
+    gap: 10px 14px;
+    align-items: center;
+}
+
+.theme-card.active{outline: 4px dashed var(--pop-pink); outline-offset: 3px;}
+.theme-swatch{
+    grid-row: 1/span 2;
+    width: 76px;height:76px;
+    border: var(--border);
+    border-radius: 10px;
+    box-shadow: 3px 3px 0 var(--ink);
+    display:flex; align-items:center;
+    justify-content: center;
+    font-weight:700; font-size:28px;
+}
+.theme-meta strong{display:block; font-size: 18px;}
+.theme-meta em{display:block; font-style:normal; font-size:12px;
+opacity:0.75; margin-top: 2px;}
+.theme-cost{
+    margin-top: 6px;
+    font-weight: 700;
+    font-size:14px;
+    color: var(--pop-red);
+}
+.theme-card .chunk-btn{
+    grid-column: 1/-1; padding:8px; font-size:14px;
+}
+.chunk-btn.equipped{background: var(--pop-pink);}
+.chunk-btn:disabled{opacity: 0.55; cursor:not-allowed;}
+.chunk-btn.shop-cta{
+    width: 100%;
+    margin-top:10px;
+    background:var(--pop-yellow);
+    font-size: 14px; padding:10px;
+}
+
+.miles-earned{
+    text-align:center;
+    font-weight: 700;
+    font-size: 14px;
+    margin: 4px 0 12px;
+    padding:6px;
+    background: var(--pop-yellow);
+    border: 2px dashed var(--ink);
+    border-radius:6px;
+}
+
+
+
+.theme-preview-default   .theme-swatch { background: var(--pop-yellow); }
+.theme-preview-pop-art   .theme-swatch { background: #ffe600; color: #ee0033; font-family: 'Bangers', cursive; font-size: 34px; -webkit-text-stroke: 1.5px #000; letter-spacing: 2px;}
+.theme-preview-handheld  .theme-swatch { background: #9bbc0f; color: #0f380f; font-family: 'Press Start 2P', monospace; font-size: 14px; border-color: #0f380f; box-shadow: 2px 2px 0 #0f380f, 4px 4px 0 #0f380f; }
+.theme-preview-jetsetter .theme-swatch { background: #e8a53a; color: #2a2622; font-family: 'Archivo Black', sans-serif; font-size: 32px; border-radius: 0; box-shadow: 4px 4px 0 #2a2622;}
+
+/* writing pop art panic :D */
+
+body[data-theme="pop-art"] {
+    --ink: #000000;
+    --paper:#ffffff;
+    --pop-yellow: #ffe600;
+    --pop-pink: #ff2d87;
+    --pop-blue: #1e90ff;
+    --pop-green: #00d26a;
+    --pop-red: #ee0033;
+    --pop-purple: #ff2d87;
+    --pop-orange: #FF5F1F;
+    --shadow: 8px 8px 0 #000;
+    --shadow-lg: 12px 12px 0 #000;
+    --border: 5px solid #000;
+    --border-thick:6px solid #000;
+    --radius: 8px;
+    font-family: 'Fredoka', system-ui, sans-serif;
+    background:radial-gradient(circle at center, #000 22%, transparent 24%) 0 0 / 14px 14px, #ffe600;
+}
+body[data-theme="pop-art"] .logo,
+body[data-theme="pop-art"] .receipt h2,
+body[data-theme="pop-art"] .card-title,
+body[data-theme="pop-art"] .receipt-verdict,
+body[data-theme="pop-art"] .region-btn strong{
+    font-family: 'Bangers', 'Impact',cursive;
+    letter-spacing:2px;
+    font-style: italic;
+    -webkit-text-stroke: 1px #000;
+}
+body[data-theme="pop-art"] .logo{text-shadow: 6px 6px 0 #ee0033;}
+body[data-theme="pop-art"] .card{border-width: 6px; box-shadow:10px 10px 0 #000;}
+body[data-theme="pop-art"] .card-title{font-size:32px;}
+body[data-theme="pop-art"] .chunk-btn,
+body[data-theme="pop-art"] .region-btn,
+body[data-theme="pop-art"] .day-btn{border-width: 6px; box-shadow:8px 8px 0 #000;}
+body[data-theme="pop-art"] .card.cat-Food{background:#ffe600;}
+body[data-theme="pop-art"] .card.cat-Culture{background:#ff2d87; color:#000;}
+body[data-theme="pop-art"] .card.cat-Adventure{background:#ee0033; color:#fff;}
+body[data-theme="pop-art"] .card.cat-Relaxation{background:#1e90ff; color:#fff;}
+body[data-theme="pop-art"] .card.cat-Chaos{background: #000; color:#ffe600;}
+
+
+/* roadtrip handhled :D*/
+
+body[data-theme="handheld"]{
+    --ink: #0f380f;
+    --paper: #9bbc0f;
+    --pop-yellow: #8bac0f;
+    --pop-pink: #306230;
+    --pop-blue: #8bac0f;
+    --pop-green: #9bbc0f;
+    --pop-red: #0f380f;
+    --pop-purple: #306230;
+    --pop-orange: #8bac0f;
+    --shadow: 2px 2px 0 #0340;
+    --shadow-lg: 2px 2px 0 #0f380f, 4px 4px 0 #0f380f, 6px 6px 0 #0f380f, 8px 8px 0 #0f380f;
+    --border: 3px solid #0f380f;
+    --border-thick: 4px solid #0f380f;
+    --radius: 0px;
+    font-family: 'Press Start 2P', monospace;
+    color:#0f380f;
+    background: repeating-linear-gradient(0deg, rgba(15,56,15,0.08) 0 2px, transparent 2px 4px),
+                repeating-linear-gradient(90deg, rgba(15, 56, 15,0.08) 0 2px, transparent 2px 4px),
+                #9bbc0f;
+}
+
