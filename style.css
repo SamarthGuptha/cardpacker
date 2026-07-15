@@ -607,3 +607,29 @@ body[data-theme="handheld"] .card.cat-Chaos{background: #0f380f; color: #9bbc0f;
 body[data-theme="handheld"] .stress-fill{
     background: repeating-linear-gradient(90deg, #0f380f 0 8px, #306230 8px 16px);
 }
+
+/* mid cent jetsetters!!!*/
+
+
+body[data-theme="jetsetter"]{
+    --ink: #2a2622;
+    --paper: #f4ecd8;
+    --pop-yellow: #e8a53a;
+    --pop-pink: #d2691e;
+    --pop-blue: #7fb5a8;
+    --pop-green: #7fb5a8;
+    --pop-red: #b7472a;
+    --pop-purple: #d2691e;
+    --pop-orange: #d2691e;
+    --shadow: 6px 6px 0 #2a2622;
+    --shadow-lg: 10px 10px 0 #2a2622;
+    --border: 3px solid #2a2622;
+    --border-thick: 4px solid #2a2622;
+    --radius: 0px;
+    font-family: 'Archivo Black', 'Helvetica', 'Impact', sans-serif;
+    letter-spacing: -0.5px;
+    background:
+                linear-gradient(135deg, transparent 49.5%, #2a2622 49.5% 50.5%, transparent 50.5%) 0 0/80px 80px,
+                #f4ecd8;
+}
+

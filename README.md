@@ -4,3 +4,5 @@ Build combos while keeping your stress meter below meltdown :D
 
 Wins and losses both earn sky miles which can either be used to unlock new regions or be spent  
 in th duty free Shop to buy cosmetics!
+
+(AI Assisted.)
