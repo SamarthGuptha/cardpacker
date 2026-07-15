@@ -10,7 +10,7 @@ export function createGame(regionId){
       region,
       deck, discard:[],
       days:Array.from({length:MAXDAYS}, ()=> ({cards:[],locked:false})),
-      stress:0,scoreL0,
+      stress:0,score:0,
       activeCard: null,
       scoreLog:[],
       over: false,
@@ -64,7 +64,7 @@ export function placeCard(game, dayIdx){
         ...(prevDayLast?[prevDayLast.country]:[]),
     ];
     if (card.country !== "-" && prevCountries.includes(card.country)){
-        const bonus= Math.round(card*pts *(game.region.countryStreakMult-1));
+        const bonus= Math.round(card.pts *(game.region.countryStreakMult-1));
         pts+=bonus;
         bonuses.push({label:`Geo streak ${card.country}`, value:bonus});
     }
@@ -182,7 +182,7 @@ function finalize(game) {
     game.won=game.stress<game.region.stressThreshold;
 }
 
-function shuffe(arr) {
+function shuffle(arr) {
     for (let i=arr.length-1; i>0; i--){
         const j = Math.floor(Math.random()*(i+1));
         [arr[i], arr[j]]=[arr[j], arr[i]];
@@ -220,9 +220,9 @@ export function saveProgress(p) {
 
 export const THEMES = [
     {id:"default",name:"Cardpacker Classic", cost:0, blurb:"The original deck."},
-    {id:"pop-art", name: "Pop Art Panic", cost: 2000, blurb: "Comic-book halftones. BAM! POW!"},
-    {id: "handheld", name: "Roadtrip Handheld", cost: 3000, blurb: "1989 game boy on a family road trip."},
-    {id: "jetsetter",name:"Mid-Century Jetsetter", cost: 5000, blurb: "Swiss poster meets Pan-Am"}
+    {id:"pop-art", name: "Pop Art Panic", cost: 2, blurb: "Comic-book halftones. BAM! POW!"},
+    {id: "handheld", name: "Roadtrip Handheld", cost: 3, blurb: "1989 game boy on a family road trip."},
+    {id: "jetsetter",name:"Mid-Century Jetsetter", cost: 5, blurb: "Swiss poster meets Pan-Am"}
 ];
 
 export function purchaseTheme(progress, themeId) {
