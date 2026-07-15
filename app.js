@@ -112,4 +112,11 @@ function openShop(){
 }
 
 
+document.getElementById("btn-menu").addEventListener("click",openMenu);
+document.getElementById("btn-discard").addEventListener("click",handleDiscard);
+document.getElementById("choice-accept").addEventListener("click", ()=> handleChoice(true));
+document.getElementById("choice-decline").addEventListener("click", ()=>handleChoice(false));
+document.getElementById("btn-receipt-shop").addEventListener("click",openShop);
+
 UI.applyTheme(progress.activeTheme);
+openMenu();
