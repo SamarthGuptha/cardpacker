@@ -188,5 +188,43 @@ export function renderMenu(progress, onStart, onOpenShop, onBuyRegion){
             };
             btn.appendChild(buy);
         }
-    })
+        btn.onclick = ()=> unlocked && onStart(rid);
+    });
+    const shopBtn=$("btn-shop");
+    if (shopBtn&&onOpenShop) shopBtn.onclick = () => onOPenShop();
+}
+
+export function renderShop(progress, onBuy,onEquip,onBack){
+    showScreen("shop");
+    applyTheme(progress.activeTheme);
+    $("shop-miles").textContent = progress.miles;
+    const grid = $("theme-grid");
+    grid.innerHTML = "";
+
+    THEMES.forEach(t =>{
+        const owned = progress.ownedThemes.includes(t.id);
+        const active = progress.activeTheme ===t.id;
+        const canBuy = !owned&&progress.miles>=t.cost;
+        const card = document.createElement("div");
+        card.className = "theme-card theme-preview-"+t.id + (active?"active":"");
+        card.innerHTML = `
+      <div class="theme-swatch"><span>Aa</span></div>
+      <div class="theme-meta">
+        <strong>${t.name}</strong>
+        <em>${t.blurb}</em>
+        <div class="theme-cost">${t.cost === 0 ? "FREE" : `✈ ${t.cost}`}</div>
+      </div>
+      <button class="chunk-btn ${owned ? (active ? "equipped" : "accept") : (canBuy ? "accept" : "decline")}">
+        ${active ? "EQUIPPED" : owned ? "EQUIP" : canBuy ? "BUY" : "LOCKED"}
+      </button>
+    `;
+
+
+    const btn = card.querySelector("button");
+    btn.disabled = active||(!owned && !canBuy);
+    btn.onclick=()=> owned ? onEquip(t.id) :onBuy(t.id);
+    grid.appendChild(card);
+    });
+    const back = $("btn-shop-back");
+    if (back) back.onclick = () => onBack();
 }
